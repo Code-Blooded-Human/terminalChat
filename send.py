@@ -1,5 +1,3 @@
-#sends data to a ip address and port
-
 import socket
 import sys
 import json
@@ -15,7 +13,9 @@ file = open("chats/"+host ,"a")
 file.write("<<--"+message+"\n")
 file.close()
 
-client_socket.send(message.encode())  # send message
+data={"ip":ip,"content":message}
+data=json.dumps(data)
+client_socket.send(data.encode())  # send message
 
 
 client_socket.close()  # close the connection
