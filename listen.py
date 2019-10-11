@@ -3,7 +3,7 @@
 # {"ip":,"content":}  
 #ip-> ip address of node sending the message.
 #content-> content of message 
-
+#added directional arrow
 import socket
 import sys
 import json
@@ -18,7 +18,7 @@ while True:
     conn, address = server_socket.accept()  # accept new connection
     data = conn.recv(1024).decode()
     data = json.loads(data)
-    chatline=data["content"]+"\n"
+    chatline="-->>"+data["content"]+"\n"
     print(data["content"])
     file = open("chats.txt",'a') 
     file.write(chatline) 
