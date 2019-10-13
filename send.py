@@ -6,8 +6,8 @@ import os
 host = sys.argv[1]  # ip of reciver
 port = int(sys.argv[2])  # port 
 
-ip = os.popen("hostname -I | awk '{print $1}'").read()
-
+sip = os.popen("hostname -I").read()
+ip=sip.split(" ")
 
 
 
@@ -19,7 +19,7 @@ file = open("chats/"+host ,"a")
 file.write("<<--"+message+"\n")
 file.close()
 
-data={"ip":ip,"content":message}
+data={"ip":ip[0],"content":message}
 data=json.dumps(data)
 client_socket.send(data.encode())  # send message
 
