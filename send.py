@@ -4,7 +4,8 @@ import json
 
 host = sys.argv[1]  # ip of reciver
 port = int(sys.argv[2])  # port 
-ip="127.0.0.1"
+host_name = socket.gethostname() 
+ip = socket.gethostbyname(host_name) 
 client_socket = socket.socket()  # instantiate
 client_socket.connect((host, port))  # connect to the server
 

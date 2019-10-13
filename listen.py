@@ -14,7 +14,7 @@ while True:
     data = conn.recv(1024).decode()
     data = json.loads(data)
     chatline=" -->> "+data["content"]+"\n"
-    print(data["content"])
+    print("\n"+data["ip"]+data["content"])
     file = open("chats/"+str(data["ip"]),'a') 
     file.write(chatline) 
     file.close() 
