@@ -7,9 +7,10 @@ os.system("python listen.py "+str(port)+" &")
 
 while True:
     os.system("clear")
-   
+    print("Users Connected to you via chat. \n")
     os.system("ls  chats")
- 
+    print("\n -------------------------------------------------------------------------------------------------------- \n")
+    print("Enter rr to refresh \ncc to connect to new user \nll to chat with user\n")
     inp=raw_input()
     if inp == "rr":
         continue
