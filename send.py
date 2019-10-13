@@ -1,11 +1,16 @@
 import socket
 import sys
 import json
+import os
 
 host = sys.argv[1]  # ip of reciver
 port = int(sys.argv[2])  # port 
-host_name = socket.gethostname() 
-ip = socket.gethostbyname(host_name) 
+
+ip = os.popen("hostname -I | awk '{print $1}'").read()
+
+
+
+
 client_socket = socket.socket()  # instantiate
 client_socket.connect((host, port))  # connect to the server
 
